@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'encyclopedia/favicon.ico' %}">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+        </style>
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="row">
+            <div class="sidebar">
+                <a href="{% url 'index' %}"><img src="{% static 'encyclopedia/logo.png' %}" alt="logo" width="100%" height="auto"></a>
+                <form action="{% url 'index' %}" method="post">
+                    {% csrf_token %}
+                    <input class="search" type="text" name="query" placeholder="Search Encyclopedia  &emsp;&emsp;&emsp;&#xF002;" style="font-family:Arial, FontAwesome" >
+                </form>
+                <a href="{% url 'index' %}">
+                <div class="element">
+                    Home
+                </div>
+                </a>
+                <a href="{% url 'add' %}">
+                <div class="element">
+                    Create New Page
+                </div>
+                </a>
+                <a href="{% url 'random' %}">
+                <div class="element">
+                    Random Page
+                </div>
+                </a>
+                {% block nav %}
+                {% endblock %}
+            </div>
+            <div class="main">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>

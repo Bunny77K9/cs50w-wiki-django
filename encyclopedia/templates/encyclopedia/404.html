@@ -1,0 +1,53 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    404
+{% endblock %}
+
+{% block body %}
+
+<section class="page_404">
+	<div class="container">
+		<div class="row  text-center">	
+				<div class="col-sm-12 col-sm-offset-1  text-center">
+					<div class="four_zero_four_bg">
+					</div>
+					<h1 class="text-center">404</h1>
+					<h3 class="h2">{{ message1 }}</h3>
+					<p>{{ message2 }}</p>
+					<a href="{% url 'index' %}" class="link_404">{{ message3 }}</a>
+				</div>
+		</div>
+	</div>
+</section>
+
+<style>
+h1{
+	margin-top: 0%;
+	font-size: 50px;
+}
+
+.page_404{
+	background:#fff; font-family: 'Arvo', serif;
+}
+
+.page_404  img{ 
+	width:100%;
+}
+
+.four_zero_four_bg{
+ 	background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 60vh;
+    background-position: center;
+ }
+			 
+.link_404{			 
+	color: #fff!important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;}
+	.contant_box_404{ margin-top:-50px;}
+</style>
+
+{% endblock %}

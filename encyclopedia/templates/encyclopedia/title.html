@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+
+    {{entry|safe}}
+    <a href=/edit/{{title}}>
+        <button class="btn btn-primary">Edit</button>
+    </a>
+<style>
+    h1{
+    font-family: 'Arvo', serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    position: relative;
+  }
+  h1:before {
+    background-color: #c50000;
+    border-radius: 0.25rem;
+    content: '';
+    display: block;
+    height: 0.25rem;
+    width: 42px;
+    margin-bottom: 0.7rem;
+}
+</style>
+{% endblock %}
